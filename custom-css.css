@@ -386,7 +386,6 @@ hr {
     margin: auto;
     display: block;
     width: 80%;
-    max-width: 1400px;
 }
 
 
@@ -433,8 +432,8 @@ hr {
 
 .img-modal .close {
     position: absolute;
-    top: 15px;
-    right: 35px;
+    top: 50px;
+    right: 50px;
     color: #f1f1f1;
     font-size: 40px;
     font-weight: bold;

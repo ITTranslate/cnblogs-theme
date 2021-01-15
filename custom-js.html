@@ -1,0 +1,58 @@
+<div style="text-align: center;">
+    <p style="font-size: 18px;font-weight: 600;color:#000;padding-top:6px;padding-bottom:6px;border-bottom:1px dashed #77f;">不做标题党，只分享技术干货</p>
+    <p style="font-size: 16px;font-weight: 400;padding-top:4px;padding-bottom:4px;">微信扫一扫关注『技术译站』☺</p>
+    <img style="width: 230px; " src="https://img2020.cnblogs.com/blog/2074831/202006/2074831-20200628152541133-1651846078.jpg" alt="">
+</div>
+
+<script>
+    ! function() {
+        var modal = document.createElement('div');
+        modal.className = 'img-modal';
+        modal.innerHTML = `<span class="close">&times;</span><img class="modal-content" /><div class="img-model-caption"></div>`;
+        document.body.appendChild(modal);
+
+        let modalImg = modal.querySelector(".modal-content");
+        let captionText = modal.querySelector(".img-model-caption");
+
+        let imgs = document.querySelectorAll("#cnblogs_post_body img");
+        imgs.forEach(function(img) {
+            let sWidth = window.screen.width - 20;
+            let sHeight = window.screen.height;
+
+            img.onclick = function() {
+                let nWidth = this.naturalWidth;
+                let nHeight = this.naturalHeight;
+                let w = Math.min(nWidth, sWidth);
+
+                console.log(nWidth, nHeight, w);
+
+                modal.style.display = "block";
+                modalImg.style.width = w + "px";
+                modalImg.style.marginLeft = (sWidth - w) / 2 + "px";
+
+                captionText.innerHTML = this.alt;
+                captionText.style.width = w + "px";
+                captionText.style.marginLeft = (sWidth - w) / 2 + "px";
+
+                if (nHeight + 150 < sHeight)
+                    modal.style.paddingTop = (sHeight - nHeight - 150) / 2 + "px";
+                else
+                    modal.style.paddingTop = "10px";
+
+                modalImg.src = this.src;
+            }
+        });
+
+        modal.querySelector(".close").onclick = function() {
+            modal.style.display = "none";
+        }
+
+        modal.onclick = function() {
+            modal.style.display = "none";
+        }
+    }();
+
+    //$(document).ready(function(){ var zoomImages = $("#cnblogs_post_body img[src*='#center']"); zoomImages.each(function() { $(this).imageZoom(); }); });
+
+    document.querySelector('#tbCommentBody').placeholder = '試着做①嗰吢态好の亽，洇ゐ卟侞噫の亊情眞の好誃……';
+</script>
