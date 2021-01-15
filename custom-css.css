@@ -381,7 +381,8 @@ hr {
 
 /* Modal Content (image) */
 
-.img-modal .modal-content {
+.img-modal .modal-content,
+.img-modal .img-model-caption {
     margin: auto;
     display: block;
     width: 80%;
@@ -392,10 +393,6 @@ hr {
 /* Caption of Modal Image */
 
 .img-modal .img-model-caption {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 1400px;
     text-align: center;
     color: #ccc;
     padding: 10px 0;
