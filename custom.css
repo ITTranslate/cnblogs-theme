@@ -1,0 +1,461 @@
+body {
+    background: #d3e6f9;
+}
+
+#cnblogs_post_body {
+    word-break: break-all;
+}
+
+
+/*-----------------------*/
+
+#cnblogs_post_body img {
+    box-shadow: 1px 1px 5px rgba(152, 181, 188, .5);
+    padding: 5px !important;
+    display: block;
+    max-width: 100% !important;
+    height: auto !important;
+    visibility: visible !important;
+    margin: auto;
+}
+
+img[src*='#left'] {
+    float: left;
+}
+
+img[src*='#right'] {
+    float: right;
+}
+
+img[src*='#center'] {
+    display: block;
+    margin: auto;
+}
+
+
+/*
+#cnblogs_post_body img {
+    position: inherit;
+    transition: -webkit-transform 0.25s ease;
+    transition: transform 0.25s ease;
+}
+
+#cnblogs_post_body img:active {
+    position:absolute;
+    margin-left: 5%;
+    z-index: 1000;
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+}*/
+
+
+/*-----------------------*/
+
+#comment_nav>a[href='#top'] {
+    position: fixed;
+    bottom: 3px;
+    right: 15px;
+}
+
+#div_digg {
+    position: fixed;
+    bottom: 0;
+    right: 30%;
+    margin-bottom: 1px;
+}
+
+#div_digg>.buryit {
+    display: none;
+}
+
+#div_digg .diggnum::before {
+    content: "贊個唄 ❤ ";
+    color: red;
+    font-weight: bold;
+    font-family: "微软雅黑";
+    font-size: 1.05em;
+}
+
+#div_digg .diggnum {
+    color: #075df3;
+}
+
+#div_digg>.diggit {
+    border-radius: 18px;
+    border: dotted 1px rgba(238, 51, 51, .8);
+    float: right;
+    background: none;
+    background-image: linear-gradient(to bottom right, rgba(255, 238, 238, .1), rgba(255, 140, 153, .8));
+    width: 106px;
+    height: 26px;
+}
+
+#div_digg>.diggword {
+    margin-top: 0;
+}
+
+#p_b_follow {
+    position: fixed;
+    bottom: 30px;
+    right: 23px;
+}
+
+#p_b_follow>a {
+    color: #075df3;
+}
+
+
+/*----------content---------*/
+
+.cnblogs-markdown em {
+    margin: 0 3px 0 2px;
+}
+
+.cnblogs-markdown sup>a {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+
+/*----------title---------*/
+
+#cnblogs_post_body {
+    font-size: 15px;
+    font-family: "微软雅黑", "宋体", "黑体", Verdana, Arial, Helvetica, sans-serif;
+    color: #111;
+}
+
+#cnblogs_post_body p {
+    font-size: 15px;
+    text-indent: 1em;
+    margin-top: 13px;
+    margin-bottom: 12px;
+}
+
+#cnblogs_post_body p code,
+#topics .postBody blockquote p,
+#cnblogs_post_body li p {
+    text-indent: 0;
+}
+
+#cnblogs_post_body blockquote p,
+#cnblogs_post_body .footnotes-list,
+#cnblogs_post_body .footnotes-list p {
+    font-size: 14px;
+}
+
+#cnblogs_post_body>p>a,
+#cnblogs_post_body blockquote>p>a {
+    color: inherit;
+    background: linear-gradient(to top, transparent 0%, rgba(5, 130, 230, 0.5) 0%, rgba(5, 130, 230, 0.5) 100%, transparent 100%) no-repeat left 0 bottom 0;
+    background-size: 100% 1px;
+    transition: background-size 250ms ease;
+    margin: 0 2px;
+}
+
+#cnblogs_post_body>p>a:hover,
+#cnblogs_post_body blockquote>p>a:hover {
+    background-size: 100% calc(1em + 6px);
+}
+
+#cnblogs_post_body a:link,
+#cnblogs_post_body a:visited {
+    color: rgb(3, 102, 205);
+    text-decoration: none;
+}
+
+#cnblogs_post_body p a:hover {
+    border-bottom: none;
+}
+
+#cnblogs_post_body ol li a:hover,
+#cnblogs_post_body ul li a:hover {
+    color: rgb(3, 102, 245);
+    border-bottom: 1px dotted rgb(3, 102, 245);
+    /*text-decoration:underline;
+    border-bottom:none;*/
+}
+
+#cnblogs_post_body sup a:hover {
+    text-decoration: none;
+}
+
+#topics .postTitle {
+    font-size: 28px;
+    margin-bottom: 20px;
+    background: #2B66AF;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px #5F5A99, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
+    color: #FFFFFF;
+    font-family: "微软雅黑", "宋体", "黑体", Arial;
+    font-weight: bold;
+    line-height: 40px;
+    margin: 0 0 20px 0 !important;
+    padding: 0 2px 0 5px;
+    text-shadow: 2px 2px 3px #222222;
+}
+
+#topics .postTitle a#cb_post_title_url {
+    color: #fff;
+}
+
+.postTitle a#cb_post_title_url:hover {
+    color: #eefcfd;
+}
+
+#cnblogs_post_body h2 {
+    margin: 1.5rem 8px 1rem 0;
+    border-bottom: double 1px #268ff2;
+    border-radius: 25px 25px 9px;
+    border-left: dotted 2px #169ff6;
+    padding: 5px 10px 2px 10px;
+}
+
+#cnblogs_post_body h3 {
+    margin-top: 1rem;
+    font-family: "微软雅黑", "宋体", "黑体", Arial;
+    color: #000022;
+    background-color: rgb(245, 250, 255);
+    padding: 2px 6px;
+    border-radius: 1px 22px 0 1px;
+    border-left: dotted 1px rgba(180, 200, 255, .8);
+    border-right: dotted 1px rgba(180, 200, 255, .5);
+}
+
+#cnblogs_post_body h3 code {
+    font-size: 14px !important;
+    line-height: 1.6;
+}
+
+#cnblogs_post_body h3::before {
+    content: "§";
+    color: #335;
+    font-family: "微软雅黑";
+    font-size: .9em;
+    line-height: 1.6;
+    margin-right: 6px;
+}
+
+#cnblogs_post_body h4 {
+    font-size: 15px !important;
+}
+
+#cnblogs_post_body ol,
+#cnblogs_post_body ul {
+    margin-left: 0;
+    padding-left: 2em;
+}
+
+
+/*------------code-------------*/
+
+#topics .postBody blockquote {
+    padding: .15em .6em;
+    border: 1px solid #eee;
+    border-left: .4em solid #ccddef;
+    border-radius: .3em;
+    color: #6a737d;
+}
+
+#topics .postBody pre,
+.cnblogs-markdown pre {
+    overflow-x: auto !important;
+    white-space: pre !important;
+    /*width:100% !important;*/
+}
+
+.cnblogs-markdown pre .hljs,
+.cnblogs-markdown pre .hljs-keyword,
+.cnblogs-markdown pre .hljs-string,
+.cnblogs-markdown pre .hljs-number {
+    font-size: 13px !important;
+    font-family: "Lucida Console", "Courier New", sans-serif !important;
+}
+
+.cnblogs-markdown pre>code.hljs {
+    box-shadow: 1px 2px 5px rgba(132, 161, 168, .7);
+    border: none !important;
+    background: #f2f2ef !important;
+    padding: 10px !important;
+    max-width: 1000% !important;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    webkit-overflow-scrolling: touch;
+    word-break: normal;
+    overflow-wrap: normal;
+    white-space: pre;
+}
+
+.cnblogs-markdown code,
+.cnblogs-post-body code {
+    font-size: 14px !important;
+    font-family: "Lucida Console", "Courier New", sans-serif !important;
+    box-sizing: border-box !important;
+    color: #FF5020;
+    padding: 0.05em 0.3em 0.05em 0.3em !important;
+    border-radius: 2px 2px 3px 3px !important;
+    border: none !important;
+    margin: 0;
+    word-break: break-all;
+    overflow-wrap: break-word;
+}
+
+.cnblogs-markdown h2 code,
+.cnblogs-post-body h2 code {
+    font-size: .9em !important;
+    line-height: 1.6;
+}
+
+.cnblogs-markdown>p>code,
+.cnblogs-markdown>blockquote>p>code {
+    background-color: transparent !important;
+}
+
+
+/*------------table-------------*/
+
+#cnblogs_post_body th,
+#cnblogs_post_body td,
+.cnblogs-post-body th,
+.cnblogs-post-body td {
+    border: 1px solid rgb(198, 203, 209);
+}
+
+#cnblogs_post_body th,
+.cnblogs-post-body th {
+    background-color: #f7f7f7;
+}
+
+#cnblogs_post_body tbody>tr:nth-child(even),
+.cnblogs-post-body tbody>tr:nth-child(even) {
+    background-color: #f6f8fa;
+}
+
+
+/*------------footnotes-------------*/
+
+section.footnotes::before {
+    content: "相关链接：";
+    color: #333;
+    font-weight: bold;
+    font-family: "微软雅黑";
+    font-size: 1.0em;
+    display: block;
+}
+
+hr {
+    margin: 1.5em auto;
+    border: 0;
+    height: 1px;
+    background: #666;
+    background-image: linear-gradient(to right, #dfdfdf, #999, #dfdfdf);
+}
+
+
+/*------------img-------------*/
+
+.img-modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(100, 100, 100);
+    /* Fallback color */
+    background-color: rgba(100, 100, 100, 0.8);
+    /* Black w/ opacity */
+}
+
+
+/* Modal Content (image) */
+
+.img-modal .modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 1400px;
+}
+
+
+/* Caption of Modal Image */
+
+.img-modal .img-model-caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 1400px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+
+/* Add Animation */
+
+.img-modal .modal-content,
+.img-modal .img-model-caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+
+/* The Close Button */
+
+.img-modal .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.img-modal .close:hover,
+.img-modal .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* 100% Image Width on Smaller Screens */
+
+@media only screen and (max-width: 700px) {
+    .img-modal .modal-content {
+        width: 100%;
+    }
+}
