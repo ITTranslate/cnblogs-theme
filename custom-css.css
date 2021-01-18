@@ -282,7 +282,7 @@ img[src*='#center'] {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     flex: 1;
-    webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
     word-break: normal;
     overflow-wrap: normal;
     white-space: pre;
@@ -354,7 +354,7 @@ hr {
 }
 
 
-/*------------img-------------*/
+/*------------img modal-------------*/
 
 .img-modal {
     display: none;
@@ -410,9 +410,9 @@ hr {
 .img-modal .modal-content,
 .img-modal .img-model-caption {
     -webkit-animation-name: zoom;
-    -webkit-animation-duration: 0.6s;
+    -webkit-animation-duration: 0.5s;
     animation-name: zoom;
-    animation-duration: 0.6s;
+    animation-duration: 0.5s;
 }
 
 @-webkit-keyframes zoom {
