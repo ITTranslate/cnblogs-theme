@@ -17,6 +17,7 @@ body {
     height: auto !important;
     visibility: visible !important;
     margin: auto;
+    cursor: zoom-in;
 }
 
 img[src*='#left'] {
@@ -376,6 +377,7 @@ hr {
     /* Fallback color */
     background-color: rgba(100, 100, 100, 0.8);
     /* Black w/ opacity */
+    cursor: zoom-out;
 }
 
 
@@ -386,6 +388,10 @@ hr {
     margin: auto;
     display: block;
     width: 80%;
+}
+
+.img-modal .modal-content {
+    cursor: default;
 }
 
 
