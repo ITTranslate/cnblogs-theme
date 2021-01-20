@@ -158,17 +158,19 @@
             document.querySelectorAll("#cnblogs_post_body.cnblogs-markdown > h3").forEach(function(h) {
                 let span = document.createElement("SPAN");
                 span.appendChild(document.createTextNode("§"));
-                h.insertBefore(span, h.childNodes[0]);
+                h.insertBefore(span, h.firstChild);
             });
         })();
 
         (function() {
-            let div = document.createElement("DIV");
-            let span = document.createElement("SPAN");
-            span.appendChild(document.createTextNode("相关链接："));
-            div.appendChild(span);
             let footnote = document.querySelector("#cnblogs_post_body.cnblogs-markdown > .footnotes");
-            footnote.insertBefore(div, footnote.firstChild);
+            if (footnote) {
+                let div = document.createElement("DIV");
+                let span = document.createElement("SPAN");
+                span.appendChild(document.createTextNode("相关链接："));
+                div.appendChild(span);
+                footnote.insertBefore(div, footnote.firstChild);
+            }
         })();
     });
 </script>
