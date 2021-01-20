@@ -228,8 +228,7 @@ img[src*='#center'] {
     line-height: 1.6;
 }
 
-#cnblogs_post_body h3::before {
-    content: "§";
+#cnblogs_post_body.cnblogs-markdown>h3>span:first-child {
     color: #335;
     font-family: "微软雅黑";
     font-size: .9em;
@@ -336,12 +335,21 @@ img[src*='#center'] {
 
 /*------------footnotes-------------*/
 
-section.footnotes::before {
+
+/* section.footnotes::before {
     content: "相关链接：";
     color: #333;
     font-weight: bold;
     font-family: "微软雅黑";
     font-size: 1.0em;
+    display: block;
+} */
+
+#cnblogs_post_body.cnblogs-markdown>.footnotes>div:first-child {
+    color: #333;
+    font-weight: bold;
+    font-family: "微软雅黑";
+    font-size: 0.9em;
     display: block;
 }
 
