@@ -174,7 +174,7 @@
             }
         })();
 
-        function TableOfContents(container, elOutput) {
+        function TableOfContentsBackup(container, elOutput) {
             if (!elOutput) return;
             var toc = "";
             var level = 0;
@@ -220,6 +220,60 @@
             }
             elOutput.innerHTML += toc;
         };
+
+        function TableOfContents(container, elOutput) {
+            if (!elOutput) return;
+            var toc = "";
+            var level = 0;
+            var container = document.querySelector(container) || document.querySelector('#contents');
+            var hList = container.querySelectorAll('h2[id], h3[id]');
+
+            hList.forEach(function(currentValue, idx) {
+                let openLevel = parseInt(currentValue.tagName.replace(/H/i, ''));
+
+            });
+
+            container.innerHTML =
+                container.innerHTML.replace(
+                    /<h([\d]) id=\"(.*)\">(?:<span>(.*)?<\/span>)?([^<]+)<\/h([\d])>/gi,
+                    function(str, openLevel, hId, h3Prefix, titleText, closeLevel) {
+                        if (openLevel != closeLevel) {
+                            return str;
+                        }
+                        // console.log(str, openLevel, hId, h3Prefix, titleText, closeLevel);
+
+                        if (openLevel > level) {
+                            if (openLevel == 2) //h2 作为目录第一级。
+                                toc += '<ul>';
+                            else
+                                toc += (new Array(openLevel - level + 1)).join('<ul>');
+                        } else if (openLevel < level) {
+                            toc += (new Array(level - openLevel + 1)).join('</li></ul>');
+                        } else {
+                            toc += (new Array(level + 1)).join('</li>');
+                        }
+
+                        level = parseInt(openLevel);
+                        if (h3Prefix)
+                            titleText = `${h3Prefix} ${titleText}`;
+
+                        var anchor = hId;
+                        toc += '<li><a href="#' + encodeURI(anchor) + '">' + titleText +
+                            '</a>';
+
+                        // return '<h' + openLevel + '><a href="#' + anchor + '" id="' + anchor + '">' +
+                        //     titleText + '</a></h' + closeLevel + '>';
+
+                        return str;
+                    }
+                );
+
+            if (level) {
+                toc += (new Array(level + 1)).join('</ul>');
+            }
+            elOutput.innerHTML += toc;
+        };
+
 
         if (!isMobile && document.querySelector('.cnblogs-markdown h2[id]')) {
             let main = document.querySelector("#main");
