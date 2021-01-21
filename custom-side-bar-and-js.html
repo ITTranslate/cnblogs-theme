@@ -88,6 +88,7 @@
     })("docReady", window);
 
     docReady(function() {
+        let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Windows Phone|Opera Mini/i.test(navigator.userAgent);
         // DOM is loaded and ready for manipulation here
         !(function() {
             var modal = document.createElement('div');
@@ -111,7 +112,7 @@
                     modal.style.display = "block";
                     captionText.innerHTML = this.alt;
 
-                    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Windows Phone|Opera Mini/i.test(navigator.userAgent)) {
+                    if (isMobile) {
                         modalImg.style.width = "100%";
                         captionText.style.width = "100%";
                     } else {
@@ -172,5 +173,84 @@
                 footnote.insertBefore(div, footnote.firstChild);
             }
         })();
+
+        function TableOfContents(container, elOutput) {
+            if (!elOutput) return;
+            var toc = "";
+            var level = 0;
+            var container = document.querySelector(container) || document.querySelector('#contents');
+
+            container.innerHTML =
+                container.innerHTML.replace(
+                    /<h([\d]) id=\"(.*)\">(?:<span>(.*)?<\/span>)?([^<]+)<\/h([\d])>/gi,
+                    function(str, openLevel, hId, h3Prefix, titleText, closeLevel) {
+                        if (openLevel != closeLevel) {
+                            return str;
+                        }
+                        // console.log(str, openLevel, hId, h3Prefix, titleText, closeLevel);
+
+                        if (openLevel > level) {
+                            if (openLevel == 2) //h2 作为目录第一级。
+                                toc += '<ul>';
+                            else
+                                toc += (new Array(openLevel - level + 1)).join('<ul>');
+                        } else if (openLevel < level) {
+                            toc += (new Array(level - openLevel + 1)).join('</li></ul>');
+                        } else {
+                            toc += (new Array(level + 1)).join('</li>');
+                        }
+
+                        level = parseInt(openLevel);
+                        if (h3Prefix)
+                            titleText = `${h3Prefix} ${titleText}`;
+
+                        var anchor = hId;
+                        toc += '<li><a href="#' + encodeURI(anchor) + '">' + titleText +
+                            '</a>';
+
+                        // return '<h' + openLevel + '><a href="#' + anchor + '" id="' + anchor + '">' +
+                        //     titleText + '</a></h' + closeLevel + '>';
+
+                        return str;
+                    }
+                );
+
+            if (level) {
+                toc += (new Array(level + 1)).join('</ul>');
+            }
+            elOutput.innerHTML += toc;
+        };
+
+        if (!isMobile && document.querySelector('.cnblogs-markdown h2[id]')) {
+            let main = document.querySelector("#main");
+            main.style.maxWidth = "1500px";
+            let nav = document.createElement("NAV");
+            nav.id = 'ittranslator-toc';
+            nav.className = 'ittranslator-nav';
+            nav.style.flex = "0 1 300px";
+            main.insertBefore(nav, main.firstChild);
+            TableOfContents(".cnblogs-markdown", nav);
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    const id = encodeURI(entry.target.getAttribute('id'));
+                    if (entry.intersectionRatio > 0) {
+                        let elA = document.querySelector(`.ittranslator-nav li a[href="#${id}"]`);
+                        if (elA)
+                            elA.parentElement.classList.add('active');
+                    } else {
+                        let elA = document.querySelector(`.ittranslator-nav li a[href="#${id}"]`);
+                        if (elA)
+                            elA.parentElement.classList.remove('active');
+                    }
+                });
+            });
+
+            // Track all
+            document.querySelectorAll('.cnblogs-markdown h2[id], .cnblogs-markdown h3[id]').forEach((section) => {
+                observer.observe(section);
+            });
+        }
+
     });
 </script>
