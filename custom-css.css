@@ -469,3 +469,63 @@ hr {
         width: 100%;
     }
 }
+
+
+/* -------------Sticky Table of Contents--------------- */
+
+
+/* 1. Enable smooth scrolling */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* 2. Make nav sticky */
+
+.ittranslator-nav {
+    position: sticky;
+    top: 2rem;
+    align-self: start;
+}
+
+
+/* 3. ScrollSpy active styles (see JS tab for activation) */
+
+.ittranslator-nav li.active>a {
+    color: #333;
+    font-weight: 500;
+}
+
+
+/* Sidebar Navigation */
+
+.ittranslator-nav {
+    padding-left: 0;
+    border-right: 1px solid #efefef;
+}
+
+.ittranslator-nav a {
+    text-decoration: none;
+    display: block;
+    padding: .125rem 0;
+    color: #ccc;
+    transition: all 50ms ease-in-out;
+    /* 💡 This small transition makes setting of the active state smooth */
+}
+
+.ittranslator-nav a:hover,
+.ittranslator-nav a:focus {
+    color: #666;
+}
+
+.ittranslator-nav ul,
+.ittranslator-nav ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ittranslator-nav li {
+    margin-left: 1rem;
+}
