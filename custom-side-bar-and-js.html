@@ -175,13 +175,17 @@
         })();
 
         // Build a table of contents
-        function TableOfContents(container, elOutput) {
+        function TableOfContents(selector, elOutput) {
             if (!elOutput) return;
-            var toc = "";
-            var topLevel = 2; //top header level, h1 or h2
-            var preLevel = 0; //temporarily hold previous header level
-            var container = document.querySelector(container) || document.querySelector('#contents');
-            var hList = container.querySelectorAll('h2[id], h3[id], h4[id]');
+            let toc;
+            if (document.querySelector('#cb_post_title_url'))
+                toc = '<div><a href="#cb_post_title_url">目录</a></div>';
+            else
+                toc = '<div>目录</div>';
+            let topLevel = 2; //top header level, h1 or h2
+            let preLevel = 0; //temporarily hold previous header level
+            let container = document.querySelector(selector) || document.querySelector('#contents');
+            let hList = container.querySelectorAll('h2[id], h3[id], h4[id]');
 
             hList.forEach(function(hItem, idx) {
                 let currLevel = parseInt(hItem.tagName.replace(/H/i, ''));
