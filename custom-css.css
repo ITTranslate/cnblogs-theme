@@ -484,12 +484,12 @@ html {
 /* 2. Make nav sticky */
 
 .ittranslator-nav {
-    flex: 0 1 300px;
+    flex: 0 1 265px;
     position: sticky;
     top: 2rem;
     align-self: flex-start;
     padding-left: 0;
-    padding-right: 15px;
+    margin-right: 15px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -522,7 +522,6 @@ html {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 255px;
 }
 
 .ittranslator-nav a:hover,
