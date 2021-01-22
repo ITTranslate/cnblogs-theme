@@ -484,9 +484,15 @@ html {
 /* 2. Make nav sticky */
 
 .ittranslator-nav {
+    flex: 0 1 300px;
     position: sticky;
     top: 2rem;
-    align-self: start;
+    align-self: flex-start;
+    padding-left: 0;
+    padding-right: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 @media only screen and (max-width: 700px) {
@@ -506,11 +512,6 @@ html {
 
 /* Sidebar Navigation */
 
-.ittranslator-nav {
-    padding-left: 0;
-    border-right: 1px solid #efefef;
-}
-
 .ittranslator-nav a {
     text-decoration: none;
     display: block;
@@ -521,7 +522,7 @@ html {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 260px;
+    max-width: 255px;
 }
 
 .ittranslator-nav a:hover,
